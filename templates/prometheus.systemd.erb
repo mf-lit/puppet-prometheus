@@ -16,6 +16,9 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
 RestartSec=42s
+<% scope['prometheus::systemd_service_opts'].each do |val| -%>
+<%= val %>
+<% end -%>
 
 [Install]
 WantedBy=multi-user.target
